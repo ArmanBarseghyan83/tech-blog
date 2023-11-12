@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-     document.location.replace('/');
+      document.location.replace('/');
     } else {
       alert('Failed to log in.');
     }
@@ -48,3 +48,13 @@ document
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
+document.querySelectorAll('.instead').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    document
+      .querySelectorAll('.form-wrapper')
+      .forEach((el) => el.classList.remove('hide'));
+    e.target.parentElement.classList.add('hide');
+  });
+});

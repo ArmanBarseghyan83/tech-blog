@@ -63,3 +63,7 @@ article header {
 article div {
     padding: .3rem 1rem;
 }
+
+.hide {
+  display: none;
+}
