@@ -31,39 +31,78 @@ nav header {
   background-color: rgb(187, 204, 189);
   width: fit-content;
   padding: 0.2rem 0.8rem;
-  margin: .7rem 0;
-  border-radius: .5rem;
+  margin: 0.7rem 0;
+  border-radius: 0.5rem;
   box-shadow: 4px 4px 1px rgb(136, 139, 136);
 }
 
 .blog {
-    padding: 2rem;
+  padding: 2rem 4rem;
 }
 
-article  {
-    border: .2rem solid rgb(39, 8, 8);
-    margin-bottom: .5rem;
-    color: rgb(39, 8, 8);
+article {
+  border: 0.2rem solid rgb(39, 8, 8);
+  margin-bottom: 0.5rem;
+  color: rgb(39, 8, 8);
 }
 
 article a {
-    text-decoration: none;
-    color: rgb(39, 8, 8);
+  text-decoration: none;
+  color: rgb(39, 8, 8);
 }
 
 article header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color:rgb(39, 8, 8) ;
-    color: rgb(159, 168, 159);
-    padding: .3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(39, 8, 8);
+  color: rgb(159, 168, 159);
+  padding: 0.3rem 1rem;
 }
 
 article div {
-    padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
 }
 
 .hide {
   display: none;
+}
+
+.form-wrapper {
+  border: 0.2rem solid rgb(39, 8, 8);
+  width: 70%;
+  margin: auto;
+}
+
+.form-wrapper h2 {
+  background-color: rgb(39, 8, 8);
+  color: rgb(159, 168, 159);
+  padding: 0.3rem 1rem;
+}
+
+.form-wrapper a {
+  text-decoration: none;
+}
+
+.form-wrapper form {
+  padding: 1rem;
+}
+
+.form-wrapper input {
+  width:100% ;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  text-indent: 1rem;
+}
+
+.form-wrapper button {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(97, 97, 97);
+  color: rgb(187, 204, 189);
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
 }
