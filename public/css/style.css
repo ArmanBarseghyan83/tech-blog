@@ -40,18 +40,17 @@ nav header {
   padding: 2rem 4rem;
 }
 
-article {
+.card {
   border: 0.2rem solid rgb(39, 8, 8);
   margin-bottom: 0.5rem;
   color: rgb(39, 8, 8);
 }
 
-article a {
-  text-decoration: none;
-  color: rgb(39, 8, 8);
+.card div {
+  padding: 0.3rem 1rem;
 }
 
-article header {
+.card header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,8 +59,9 @@ article header {
   padding: 0.3rem 1rem;
 }
 
-article div {
-  padding: 0.3rem 1rem;
+.card > a {
+  text-decoration: none;
+  color: rgb(39, 8, 8);
 }
 
 .hide {
@@ -69,40 +69,53 @@ article div {
 }
 
 .form-wrapper {
-  border: 0.2rem solid rgb(39, 8, 8);
   width: 70%;
   margin: auto;
 }
 
-.form-wrapper h2 {
+.form h2 {
   background-color: rgb(39, 8, 8);
   color: rgb(159, 168, 159);
   padding: 0.3rem 1rem;
 }
 
-.form-wrapper a {
+.form a {
   text-decoration: none;
 }
 
-.form-wrapper form {
-  padding: 1rem;
-}
-
-.form-wrapper input {
-  width:100% ;
+.form textarea,
+.form input {
+  width: 100%;
   height: 2.5rem;
   margin-bottom: 1rem;
   text-indent: 1rem;
 }
 
-.form-wrapper button {
+.form textarea {
+  height: 5rem;
+  resize: none;
+}
+
+.form button {
   width: 100%;
   height: 2.5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   background-color: rgb(97, 97, 97);
   color: rgb(187, 204, 189);
   font-size: 1.3rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
+}
+
+.new-post,
+.comments-content button {
+  background-color: rgb(97, 97, 97);
+  color: rgb(187, 204, 189);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  text-decoration: none;
 }

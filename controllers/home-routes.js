@@ -6,8 +6,16 @@ router.get('/', async (req, res) => {
   res.render('homepage', {loggedIn: req.session.loggedIn});
 });
 
+router.get('/blog-post/:id', async (req, res) => {
+  res.render('homeItemDetails', {loggedIn: req.session.loggedIn});
+});
+
 router.get('/dashboard', async (req, res) => {
   res.render('dashboard', {loggedIn: req.session.loggedIn});
+});
+
+router.get('/dashboard/create', async (req, res) => {
+  res.render('CRUDPost', {loggedIn: req.session.loggedIn});
 });
 
 

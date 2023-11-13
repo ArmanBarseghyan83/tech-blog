@@ -54,6 +54,6 @@ document.querySelectorAll('.instead').forEach((el) => {
     document
       .querySelectorAll('.form-wrapper')
       .forEach((el) => el.classList.remove('hide'));
-    e.target.parentElement.parentElement.classList.add('hide');
+    e.target.parentElement.parentElement.parentElement.classList.add('hide');
   });
 });
