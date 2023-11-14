@@ -1,15 +1,12 @@
 <article  class="card">
-    <a href="/blogs/3" >
+    <a href="/blogs/{{id}}" >
         <header>
-            <h2>Object-Relational Mapping</h2>
-            <p>Posted by Arman 5/08/23</p>
+            <h2>{{title}}</h2>
+            <p>Posted by {{user.username}} {{createdAt}}</p>
         </header>
 
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quo labore rerum et esse, hic in! Eius
-                ipsum
-                quam praesentium dolores atque deleniti necessitatibus aspernatur suscipit quod reprehenderit, molestiae
-                fugit?</p>
+            <p>{{content}}</p> 
         </div>
     </a>
 </article>

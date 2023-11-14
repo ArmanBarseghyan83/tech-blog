@@ -6,12 +6,11 @@
         </header>
         <div class="comments-content">
             <article>
-                <p>
-                    aolkjdas dslkjf;l dsalkfd sa
-                </p>
-                <p>
-                    saflkjsda fdasfklj
-                </p>
+                {{#each comments}}
+                <p>- {{this.user.username}}</p>
+                <p>{{this.content}}</p>
+                <hr>
+                {{/each}}
             </article>
             <button>Add Comment</button>
         </div>
