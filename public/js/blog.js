@@ -49,7 +49,7 @@ const updateBlogHandler = async (e) => {
 
 const deleteBlogHandler = async () => {
   try {
-    const response = await fetch('/api/blogs', {
+    const response = await fetch('/api/blog', {
       method: 'DELETE',
       body: JSON.stringify({id: 2 }),
       headers: { 'Content-Type': 'application/json' },
