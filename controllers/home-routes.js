@@ -48,7 +48,7 @@ router.get('/blogs/:id', async (req, res) => {
       })),
     };
 
-    res.render('homeItemDetails', { loggedIn: req.session.loggedIn, ...blog });
+    res.render('blogDetails', { loggedIn: req.session.loggedIn, ...blog });
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -68,7 +68,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 router.get('/dashboard/create', async (req, res) => {
-  res.render('CRUDPost', { loggedIn: req.session.loggedIn });
+  res.render('CRUDBlog', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
