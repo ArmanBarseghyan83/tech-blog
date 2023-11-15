@@ -16,11 +16,11 @@ const createBlogHandler = async (e) => {
         alert('Failed to create.');
       }
     } catch (e) {
-      console.log(e);
       alert('Failed to create.');
     }
   }
 };
+
 
 const updateBlogHandler = async (e) => {
   e.preventDefault();
@@ -40,7 +40,6 @@ const updateBlogHandler = async (e) => {
         alert('Failed to update.');
       }
     } catch (e) {
-      console.log(e);
       alert('Failed to update.');
     }
   }
@@ -61,7 +60,6 @@ console.log(response)
       alert('Failed to delete.');
     }
   } catch (e) {
-    console.log(e);
     alert('Failed to delete.');
   }
 }

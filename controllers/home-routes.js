@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
       createdAt: formattedDate(el.get().createdAt),
     }));
 
-    res.render('homepage', { loggedIn: req.session.loggedIn, blogs });
+    console.log(req.session);
+
+    res.render('homepage', {
+      loggedIn: req.session.currentUser?.loggedIn,
+      blogs,
+    });
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -48,7 +53,10 @@ router.get('/blogs/:id', async (req, res) => {
       })),
     };
 
-    res.render('blogDetails', { loggedIn: req.session.loggedIn, ...blog });
+    res.render('blogDetails', {
+      loggedIn: req.session.currentUser?.loggedIn,
+      ...blog,
+    });
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -61,18 +69,18 @@ router.get('/dashboard', async (req, res) => {
       where: { userId: 3 },
       include: [{ model: User }, { model: Comment }],
     });
-    res.render('dashboard', { loggedIn: req.session.loggedIn });
+    res.render('dashboard', { loggedIn: req.session.currentUser?.loggedIn });
   } catch (err) {
     res.status(500).json(err.message);
   }
 });
 
 router.get('/dashboard/create', async (req, res) => {
-  res.render('CRUDBlog', { loggedIn: req.session.loggedIn });
+  res.render('CRUDBlog', { loggedIn: req.session.currentUser?.loggedIn });
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.currentUser?.loggedIn) {
     res.redirect('/');
     return;
   }

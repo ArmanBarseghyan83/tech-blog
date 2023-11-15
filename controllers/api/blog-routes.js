@@ -4,7 +4,7 @@ const { Blog, Comment, User } = require('../../models');
 // Create a new blog
 router.post('/', async (req, res) => {
   try {
-    const blog = await Blog.create({...req.body, userId: 4});
+    const blog = await Blog.create({...req.body, userId: req.session.currentUser.userId});
     res.status(200).json(blog);
   } catch (err) {
     res.status(400).json(err.message);
