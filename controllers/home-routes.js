@@ -58,7 +58,7 @@ router.get('/blogs/:id', async (req, res) => {
 router.get('/dashboard', async (req, res) => {
   try {
     const blogs = await Blog.findAll({
-      where: { creator_id: 3 },
+      where: { userId: 3 },
       include: [{ model: User }, { model: Comment }],
     });
     res.render('dashboard', { loggedIn: req.session.loggedIn });

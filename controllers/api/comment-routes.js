@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 // Create a new comment
 router.post('/', async (req, res) => {
     try {
-      const comment = await Comment.create({...req.body, creator_id: 1, blog_id: 3});
+      const comment = await Comment.create({...req.body, userId: 1, blogId: 2});
       res.status(200).json(comment);
     } catch (err) {
       res.status(400).json(err.message);
