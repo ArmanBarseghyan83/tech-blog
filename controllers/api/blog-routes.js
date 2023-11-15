@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, Comment, User } = require('../../models');
+const { Blog} = require('../../models');
 
 // Create a new blog
 router.post('/', async (req, res) => {
@@ -12,10 +12,10 @@ router.post('/', async (req, res) => {
 });
 
 // update a blog by its `id` value
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const blog = await Blog.update(req.body, {
-      where: { id: req.body.id },
+      where: { id: req.params.id },
     });
     res.status(200).json(blog);
   } catch (err) {
@@ -24,10 +24,10 @@ router.put('/', async (req, res) => {
 });
 
 // delete a blog by its `id` value
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const blog = await Blog.destroy({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
     });
     res.status(200).json(blog);
   } catch (err) {
@@ -36,3 +36,4 @@ router.delete('/', async (req, res) => {
 });
 
 module.exports = router;
+

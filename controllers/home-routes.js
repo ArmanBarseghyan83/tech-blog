@@ -16,8 +16,6 @@ router.get('/', async (req, res) => {
       createdAt: formattedDate(el.get().createdAt),
     }));
 
-    console.log(req.session);
-
     res.render('homepage', {
       loggedIn: req.session.currentUser?.loggedIn,
       blogs,
@@ -63,19 +61,33 @@ router.get('/blogs/:id', async (req, res) => {
 });
 
 // GET all blogs for user's dashboard page
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const blogs = await Blog.findAll({
-      where: { userId: 3 },
+    const blogsData = await Blog.findAll({
+      where: { userId: req.session.currentUser.userId },
       include: [{ model: User }, { model: Comment }],
     });
-    res.render('dashboard', { loggedIn: req.session.currentUser?.loggedIn });
+
+    const blogs = blogsData.map((el) => ({
+      ...el.get(),
+      user: el.user.get(),
+      createdAt: formattedDate(el.get().createdAt),
+    }));
+
+    res.render('dashboard', {
+      loggedIn: req.session.currentUser?.loggedIn,
+      blogs,
+    });
   } catch (err) {
     res.status(500).json(err.message);
   }
 });
 
-router.get('/dashboard/create', async (req, res) => {
+router.get('/dashboard/create', withAuth, async (req, res) => {
+  res.render('CRUDBlog', { loggedIn: req.session.currentUser?.loggedIn, isCreate: true });
+});
+
+router.get('/dashboard/update/:id', withAuth, async (req, res) => {
   res.render('CRUDBlog', { loggedIn: req.session.currentUser?.loggedIn });
 });
 

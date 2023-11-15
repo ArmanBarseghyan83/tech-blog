@@ -26,7 +26,7 @@ const addCommentHundler = async (e) => {
       alert('Failed to comment.');
     }
   } else {
-    alert('Add comment.');
+    alert('Fill out the form.');
   }
 };
 

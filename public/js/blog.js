@@ -21,16 +21,16 @@ const createBlogHandler = async (e) => {
   }
 };
 
-
 const updateBlogHandler = async (e) => {
   e.preventDefault();
   const title = document.querySelector('#blog-title').value.trim();
   const content = document.querySelector('#blog-content').value.trim();
+  const id = +location.href.split('/')[location.href.split('/').length - 1];
   if (title && content) {
     try {
-      const response = await fetch('/api/blogs', {
+      const response = await fetch(`/api/blogs/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, content, id: 2 }),
+        body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -45,15 +45,11 @@ const updateBlogHandler = async (e) => {
   }
 };
 
-
 const deleteBlogHandler = async () => {
+  const id = +location.href.split('/')[location.href.split('/').length - 1];
   try {
-    const response = await fetch('/api/blog', {
-      method: 'DELETE',
-      body: JSON.stringify({id: 2 }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-console.log(response)
+    const response = await fetch(`/api/blogs/${id}`, { method: 'DELETE' });
+
     if (response.ok) {
       document.location.replace('/');
     } else {
@@ -62,16 +58,16 @@ console.log(response)
   } catch (e) {
     alert('Failed to delete.');
   }
-}
+};
 
 document
   .querySelector('#create-blog')
-  .addEventListener('click', createBlogHandler);
+  ?.addEventListener('click', createBlogHandler);
 
 document
   .querySelector('#update-blog')
-  .addEventListener('click', updateBlogHandler);
+  ?.addEventListener('click', updateBlogHandler);
 
 document
   .querySelector('#delete-blog')
-  .addEventListener('click', deleteBlogHandler);
+  ?.addEventListener('click', deleteBlogHandler);

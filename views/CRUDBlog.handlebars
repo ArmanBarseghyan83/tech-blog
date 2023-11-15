@@ -1,6 +1,10 @@
 <div class="form-wrapper card">
     <header>
+        {{#if isCreate}}
         <h2>Create New Post</h2>
+        {{else}}
+        <h2>Edit Post</h2>
+        {{/if}}
     </header>
     <div>
         <form class="form">
@@ -13,9 +17,12 @@
                 <textarea id="blog-content"></textarea>
             </div>
             <div>
+                {{#if isCreate}}
                 <button id="create-blog">Create</button>
-                <button id="update-blog">Update</button>
+                {{else}}
+                <button id="update-blog">Update Post</button>
                 <button type="button" id="delete-blog">Delete</button>
+                {{/if}}
             </div>
 
         </form>

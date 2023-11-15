@@ -20,7 +20,12 @@
                     <textarea></textarea>
                 </div>
                 <div>
+                    {{#if loggedIn}}
                     <button data-blogid="{{this.id}}">Submit</button>
+                    {{else}}
+                    <p>Please login first!</p>
+                    <button type="button">Submit</button>
+                    {{/if}}
                 </div>
 
             </form>
