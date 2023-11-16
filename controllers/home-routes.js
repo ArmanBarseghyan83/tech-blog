@@ -48,6 +48,7 @@ router.get('/blogs/:id', async (req, res) => {
       comments: blogData.comments.map((comment) => ({
         ...comment.get(),
         user: comment.user.get(),
+        createdAt: formattedDate(comment.createdAt)
       })),
       user: blogData.user.get(),
     };

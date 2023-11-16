@@ -98,6 +98,7 @@ nav header {
 .form textarea {
   height: 5rem;
   resize: none;
+  padding: .3rem;
 }
 
 .form button {
@@ -122,4 +123,8 @@ nav header {
   cursor: pointer;
   margin: 1rem 0;
   text-decoration: none;
+}
+
+.comments-content p {
+  margin-bottom: .7rem;
 }

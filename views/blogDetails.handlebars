@@ -7,9 +7,8 @@
         <div class="comments-content">
             <article>
                 {{#each comments}}
-                <p>- {{this.user.username}}</p>
+                <h4>- {{this.user.username}}, {{this.createdAt}}</h4>
                 <p>{{this.content}}</p>
-                <hr>
                 {{/each}}
             </article>
             <button>Add Comment</button>
