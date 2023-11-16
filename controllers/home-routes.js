@@ -49,6 +49,7 @@ router.get('/blogs/:id', async (req, res) => {
         ...comment.get(),
         user: comment.user.get(),
       })),
+      user: blogData.user.get(),
     };
 
     res.render('blogDetails', {
@@ -77,6 +78,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('dashboard', {
       loggedIn: req.session.currentUser?.loggedIn,
       blogs,
+      idDashboard: true,
     });
   } catch (err) {
     res.status(500).json(err.message);
@@ -84,11 +86,31 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/dashboard/create', withAuth, async (req, res) => {
-  res.render('CRUDBlog', { loggedIn: req.session.currentUser?.loggedIn, isCreate: true });
+  res.render('CRUDBlog', {
+    loggedIn: req.session.currentUser?.loggedIn,
+    isCreate: true,
+    idDashboard: true,
+  });
 });
 
 router.get('/dashboard/update/:id', withAuth, async (req, res) => {
-  res.render('CRUDBlog', { loggedIn: req.session.currentUser?.loggedIn });
+  try {
+    const blogData = await Blog.findByPk(req.params.id);
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog with this id!' });
+      return;
+    }
+
+    const blog = blogData.get();
+
+    res.render('CRUDBlog', {
+      loggedIn: req.session.currentUser?.loggedIn,
+      idDashboard: true,
+      ...blog,
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
 });
 
 router.get('/login', (req, res) => {

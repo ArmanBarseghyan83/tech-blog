@@ -23,8 +23,12 @@ nav {
 nav a,
 nav button {
   color: rgb(187, 204, 189);
+  background-color:rgb(39, 8, 8) ;
+  border: none;
   margin-right: 2rem;
   text-decoration: none;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 nav header {

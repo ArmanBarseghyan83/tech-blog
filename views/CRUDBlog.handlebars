@@ -10,11 +10,11 @@
         <form class="form">
             <div>
                 <div>Title</div>
-                <input type="text" id="blog-title">
+                <input type="text" id="blog-title" value="{{#unless isCreate}}{{title}}{{/unless}}">
             </div>
             <div>
                 <div>Content</div>
-                <textarea id="blog-content"></textarea>
+                <textarea id="blog-content">{{#unless isCreate}}{{content}}{{/unless}}</textarea>
             </div>
             <div>
                 {{#if isCreate}}
