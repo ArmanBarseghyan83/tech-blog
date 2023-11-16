@@ -1,6 +1,9 @@
-const formattedDate = (date) => {
+module.exports = {
+  format_date: (date) => {
     return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
-} 
+  },
 
-module.exports = formattedDate
-
+  capitalize: (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  },
+};

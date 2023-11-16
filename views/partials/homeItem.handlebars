@@ -2,7 +2,7 @@
     <a href="/blogs/{{id}}" >
         <header>
             <h2>{{title}}</h2>
-            <p>Posted by {{user.username}} {{createdAt}}</p>
+            <p>Posted by {{capitalize user.username}} {{format_date createdAt}}</p>
         </header>
 
         <div>

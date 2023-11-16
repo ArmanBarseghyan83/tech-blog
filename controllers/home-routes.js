@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Blog, Comment, User } = require('../models');
 const withAuth = require('../utils/auth.js');
-const formattedDate = require('../utils/helpers.js');
 
 // GET all blogs for homepage
 router.get('/', async (req, res) => {
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
     const blogs = blogsData.map((el) => ({
       ...el.get(),
       user: el.user.get(),
-      createdAt: formattedDate(el.get().createdAt),
     }));
 
     res.render('homepage', {
@@ -44,11 +42,9 @@ router.get('/blogs/:id', async (req, res) => {
 
     const blog = {
       ...blogData.get(),
-      createdAt: formattedDate(blogData.createdAt),
       comments: blogData.comments.map((comment) => ({
         ...comment.get(),
         user: comment.user.get(),
-        createdAt: formattedDate(comment.createdAt)
       })),
       user: blogData.user.get(),
     };
@@ -73,7 +69,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const blogs = blogsData.map((el) => ({
       ...el.get(),
       user: el.user.get(),
-      createdAt: formattedDate(el.get().createdAt),
     }));
 
     res.render('dashboard', {
