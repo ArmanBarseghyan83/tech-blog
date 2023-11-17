@@ -81,6 +81,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Create blog page
 router.get('/dashboard/create', withAuth, async (req, res) => {
   res.render('CRUDBlog', {
     loggedIn: req.session.currentUser?.loggedIn,
@@ -89,6 +90,7 @@ router.get('/dashboard/create', withAuth, async (req, res) => {
   });
 });
 
+// Update blog page
 router.get('/dashboard/update/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id);
@@ -109,6 +111,8 @@ router.get('/dashboard/update/:id', withAuth, async (req, res) => {
   }
 });
 
+
+// Login page
 router.get('/login', (req, res) => {
   if (req.session.currentUser?.loggedIn) {
     res.redirect('/');

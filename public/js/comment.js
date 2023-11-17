@@ -4,6 +4,7 @@ const commentformWrapper = document.querySelector('.comment-form-wrapper');
 const submitComment = document.querySelector('.comment-form button');
 const commentContent = document.querySelector('.comment-form textarea');
 
+//Get the data from the user input and fetch the backend api for creating a new comment.
 const addCommentHundler = async (e) => {
   e.preventDefault();
   const content = commentContent.value.trim();

@@ -1,3 +1,4 @@
+//Get the data from the user inputs and fetch the backend api for creating a new blog.
 const createBlogHandler = async (e) => {
   e.preventDefault();
   const title = document.querySelector('#blog-title').value.trim();
@@ -23,6 +24,7 @@ const createBlogHandler = async (e) => {
   }
 };
 
+//Get the data from the user inputs and fetch the backend api for updating the blog.
 const updateBlogHandler = async (e) => {
   e.preventDefault();
   const title = document.querySelector('#blog-title').value.trim();
@@ -49,6 +51,7 @@ const updateBlogHandler = async (e) => {
   }
 };
 
+//Get the blog id from the url and fetch the backend api for deleting the blog.
 const deleteBlogHandler = async () => {
   const id = +location.href.split('/')[location.href.split('/').length - 1];
   try {

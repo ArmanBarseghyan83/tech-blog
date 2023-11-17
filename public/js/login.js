@@ -1,3 +1,4 @@
+//Get the data from the user inputs and fetch the backend api for login the user.
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -19,6 +20,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+//Get the data from the user inputs and fetch the backend api for creating a new user.
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -48,6 +50,7 @@ document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
 
+//  Switch between login and sign up  forms
 document.querySelectorAll('.instead').forEach((el) => {
   el.addEventListener('click', (e) => {
     e.preventDefault();

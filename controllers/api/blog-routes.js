@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// update a blog by its `id` value
+// Update a blog by its `id` value
 router.put('/:id', async (req, res) => {
   try {
     const blog = await Blog.update(req.body, {
@@ -26,7 +26,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// delete a blog by its `id` value
+// Delete a blog by its `id` value
 router.delete('/:id', async (req, res) => {
   try {
     const blog = await Blog.destroy({
