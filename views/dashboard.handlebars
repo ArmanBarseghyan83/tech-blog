@@ -1,6 +1,10 @@
-<section>
-    {{#each blogs}}
-    {{> dashboardItem}}
-    {{/each}}
+<section id="dashboard">
+
     <a href="/dashboard/create" class="new-post">Create New Post</a>
+
+    <div>
+        {{#each blogs}}
+        {{> dashboardItem}}
+        {{/each}}
+    </div>
 </section>

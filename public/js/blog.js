@@ -11,13 +11,15 @@ const createBlogHandler = async (e) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create.');
       }
     } catch (e) {
       alert('Failed to create.');
     }
+  } else {
+    alert('Fill out the form.');
   }
 };
 
@@ -35,13 +37,15 @@ const updateBlogHandler = async (e) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to update.');
       }
     } catch (e) {
       alert('Failed to update.');
     }
+  } else {
+    alert('Fill out the form.');
   }
 };
 

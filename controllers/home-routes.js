@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     const blogs = blogsData.map((el) => ({
       ...el.get(),
       user: el.user.get(),
-    }));
+    })).reverse();
 
     res.render('homepage', {
       loggedIn: req.session.currentUser?.loggedIn,
@@ -45,7 +45,7 @@ router.get('/blogs/:id', async (req, res) => {
       comments: blogData.comments.map((comment) => ({
         ...comment.get(),
         user: comment.user.get(),
-      })),
+      })).reverse(),
       user: blogData.user.get(),
     };
 
@@ -63,13 +63,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const blogsData = await Blog.findAll({
       where: { userId: req.session.currentUser.userId },
-      include: [{ model: User }, { model: Comment }],
+      include: [{ model: User }],
     });
 
     const blogs = blogsData.map((el) => ({
       ...el.get(),
       user: el.user.get(),
-    }));
+    })).reverse();
 
     res.render('dashboard', {
       loggedIn: req.session.currentUser?.loggedIn,
