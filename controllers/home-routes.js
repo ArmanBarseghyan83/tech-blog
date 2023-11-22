@@ -9,10 +9,7 @@ router.get('/', async (req, res) => {
       include: [{ model: User }],
     });
 
-    const blogs = blogsData.map((el) => ({
-      ...el.get(),
-      user: el.user.get(),
-    })).reverse();
+    const blogs = blogsData.map((el) => el.get({ plain: true })).reverse();
 
     res.render('homepage', {
       loggedIn: req.session.currentUser?.loggedIn,
@@ -40,14 +37,7 @@ router.get('/blogs/:id', async (req, res) => {
       return;
     }
 
-    const blog = {
-      ...blogData.get(),
-      comments: blogData.comments.map((comment) => ({
-        ...comment.get(),
-        user: comment.user.get(),
-      })).reverse(),
-      user: blogData.user.get(),
-    };
+    const blog = blogData.get({ plain: true });
 
     res.render('blogDetails', {
       loggedIn: req.session.currentUser?.loggedIn,
@@ -66,10 +56,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       include: [{ model: User }],
     });
 
-    const blogs = blogsData.map((el) => ({
-      ...el.get(),
-      user: el.user.get(),
-    })).reverse();
+    const blogs = blogsData.map((el) => el.get({ plain: true })).reverse();
 
     res.render('dashboard', {
       loggedIn: req.session.currentUser?.loggedIn,
@@ -99,7 +86,7 @@ router.get('/dashboard/update/:id', withAuth, async (req, res) => {
       return;
     }
 
-    const blog = blogData.get();
+    const blog = blogData.get({ plain: true });
 
     res.render('CRUDBlog', {
       loggedIn: req.session.currentUser?.loggedIn,
@@ -110,7 +97,6 @@ router.get('/dashboard/update/:id', withAuth, async (req, res) => {
     res.status(500).json(err.message);
   }
 });
-
 
 // Login page
 router.get('/login', (req, res) => {
